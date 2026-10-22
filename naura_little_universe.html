@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170d38">
+<title>Naura's Little Universe 💗</title>
+<style>
+:root{--pink:#ff78c8;--hot:#ff4fa8;--lav:#bba1ff;--ink:#170d38;--panel:rgba(31,20,75,.78);--white:#fff7ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--white);font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(ellipse at 50% 15%,#542c91 0,#21134d 42%,#09091e 100%);min-height:100vh;overflow-x:hidden}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.stars,.stars:before,.stars:after{position:fixed;inset:0;pointer-events:none;content:"";background-image:radial-gradient(2px 2px at 20px 30px,#fff 98%,transparent),radial-gradient(1px 1px at 90px 80px,#ffbce8 98%,transparent),radial-gradient(2px 2px at 160px 140px,#fff 98%,transparent),radial-gradient(1px 1px at 230px 50px,#c6b6ff 98%,transparent);background-size:280px 200px;opacity:.6;animation:twinkle 5s ease-in-out infinite alternate}.stars:before{transform:translate(70px,40px);opacity:.35}.stars:after{transform:translate(-30px,90px);opacity:.25}
+@keyframes twinkle{to{opacity:.9}}@keyframes float{50%{transform:translateY(-13px)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{transform:scale(1.06);filter:drop-shadow(0 0 22px #ff73c8)}}@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes zoom{to{transform:scale(18);opacity:0}}
+main{position:relative;z-index:1;width:min(960px,100%);margin:auto;padding:24px 16px 50px}.screen{display:none;min-height:80vh;align-items:center;justify-content:center;flex-direction:column;text-align:center;animation:appear .55s ease both}.screen.active{display:flex}
+.eyebrow{letter-spacing:.17em;text-transform:uppercase;font-size:.75rem;color:#e7caff;font-weight:800}.title{font-size:clamp(2.2rem,8vw,4.7rem);line-height:1.03;margin:12px 0;background:linear-gradient(120deg,#fff,#ffb9e5 48%,#c7b9ff);color:transparent;background-clip:text;-webkit-background-clip:text;text-shadow:0 0 35px #d26cff22}.sub{max-width:620px;line-height:1.7;color:#e8ddff}.btn{border:1px solid #ffffff55;border-radius:999px;padding:12px 21px;background:linear-gradient(120deg,#ff64b8,#a66aff);color:white;font-weight:800;box-shadow:0 8px 30px #d343b544;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn.secondary{background:#ffffff12;box-shadow:none}.btn.small{padding:8px 14px;font-size:.88rem}.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.planet-wrap{height:300px;width:min(330px,80vw);display:grid;place-items:center;position:relative;margin:0 auto 20px;animation:float 4s ease-in-out infinite}.planet{width:190px;height:190px;border-radius:48% 52% 45% 55%;position:relative;background:radial-gradient(circle at 32% 25%,#fff 0 3%,#ffc9f0 4% 13%,#ff78c8 30%,#a345e6 68%,#40216e 100%);box-shadow:inset -18px -18px 32px #220e5b99,inset 12px 8px 25px #fff8,0 0 55px #fa72e988;animation:spin 17s linear infinite}
+.planet:before{content:"♥";position:absolute;inset:0;display:grid;place-items:center;font-size:105px;color:#ffddf5;text-shadow:0 0 22px #fff,0 5px 15px #bd3d91;animation:pulse 3s ease-in-out infinite}
+.ring{position:absolute;width:315px;height:95px;border:9px solid transparent;border-top-color:#ffe4ff;border-bottom-color:#c78aff;border-radius:50%;transform:rotate(-20deg);filter:drop-shadow(0 0 8px #ff90e7);animation:spin 10s linear infinite}
+.moon{position:absolute;font-size:32px;animation:spin 12s linear infinite}.moon.one{top:20px;right:28px}.moon.two{bottom:22px;left:30px;animation-direction:reverse}.mascot{font-size:48px;filter:drop-shadow(0 0 15px #ff80cf);animation:float 2.6s ease-in-out infinite}
+.card{width:min(680px,100%);background:var(--panel);border:1px solid #d5b6ff55;border-radius:25px;padding:clamp(18px,4vw,30px);box-shadow:0 20px 70px #05001466;backdrop-filter:blur(12px);text-align:left}
+.card h2{text-align:center;margin:0 0 8px;font-size:clamp(1.5rem,5vw,2.2rem)}.muted{color:#d7c9f5}.progress{height:9px;background:#ffffff1b;border-radius:99px;overflow:hidden;margin:16px 0 24px}.progress span{display:block;height:100%;background:linear-gradient(90deg,#ff77c9,#a78bfa);width:0;transition:width .4s}
+.question{font-size:1.2rem;font-weight:800;margin:18px 0}.choices{display:grid;gap:10px}.choice{border:1px solid #d5b6ff55;border-radius:15px;padding:13px 15px;text-align:left;color:white;background:#ffffff0c}.choice:hover,.choice.selected{background:#ff70c52b;border-color:#ff9ddd}.feedback{min-height:48px;margin-top:14px;color:#ffd0ec;line-height:1.5}.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;width:100%;margin-bottom:14px}.pill{border:1px solid #ffffff30;border-radius:99px;padding:7px 12px;font-size:.8rem;color:#eadfff}
+form{display:grid;gap:16px}fieldset{border:1px solid #ffffff24;border-radius:17px;padding:15px;margin:0}legend{font-weight:800;color:#ffc5e8;padding:0 8px}label{display:block;font-size:.92rem;margin:8px 0 5px;color:#f3e9ff}input,select,textarea{width:100%;padding:11px 12px;border:1px solid #ffffff35;border-radius:11px;background:#160f37;color:white;outline:none}input:focus,select:focus,textarea:focus{border-color:#ff8bd4}input[type=checkbox],input[type=radio]{width:auto;accent-color:#ff69bf;margin-right:7px}.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px 12px}.options label{display:flex;align-items:center;margin:5px 0}.result{white-space:pre-wrap;line-height:1.8;background:#100a2a99;border:1px dashed #ff9cda88;border-radius:16px;padding:18px;overflow-wrap:anywhere}.footer{font-size:.78rem;color:#c5b7e8;margin-top:24px}.hidden{display:none!important}
+@media(max-width:520px){main{padding:18px 12px 35px}.planet-wrap{height:250px}.planet{width:155px;height:155px}.planet:before{font-size:85px}.ring{width:260px;height:78px;border-width:7px}.card{border-radius:20px}.topline{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<main>
+<section class="screen active" id="intro">
+  <div class="eyebrow">A tiny universe made for</div>
+  <div class="planet-wrap" id="planetWrap"><div class="ring"></div><div class="planet"></div><div class="moon one">🪐</div><div class="moon two">✨</div></div>
+  <div class="eyebrow">Welcome to</div><h1 class="title">Naura's Little<br>Universe 💗</h1>
+  <div class="mascot">🥹💖</div>
+  <p class="sub">Special character unlocked: <strong>NAURA</strong><br>Made with chaos, courage, and a little bit of GERDY. 😭</p>
+  <p class="sub">Peringatan: berisi tebak-tebakan absurd, flirting tipis-tipis, dan satu misi rahasia.</p>
+  <div class="actions"><button class="btn" onclick="startGame()">ENTER NAURA'S GALAXY 💗</button><button class="btn secondary small" onclick="startGame()">Skip intro</button></div>
+</section>
+
+<section class="screen" id="game">
+  <div class="topline"><span class="pill">🪐 NAURA'S SECRET MISSION</span><span class="pill" id="levelTag">LEVEL 1/4</span></div>
+  <h1 class="title" style="font-size:clamp(2rem,6vw,3.4rem)">Agent Naura, your mission starts now.</h1>
+  <p class="sub">Jawab santai aja. Ini bukan ujian, nggak ada nilai remedial. WKWK 😭</p>
+  <div class="card">
+    <div class="progress"><span id="progressBar"></span></div>
+    <div id="gameContent"></div>
+    <div class="actions" style="justify-content:space-between"><button class="btn secondary small" onclick="prevLevel()">← Kembali</button><button class="btn small" id="nextBtn" onclick="nextLevel()">Lanjut →</button></div>
+  </div>
+</section>
+
+<section class="screen" id="meet">
+  <div class="mascot">💗🌃💗</div><div class="eyebrow">Final mission unlocked</div>
+  <h1 class="title">LET'S MEET IRL?</h1>
+  <p class="sub">Naura, gimana kalau kita ketemu langsung, ngobrol santai, dan cari makanan enak? Kalau kamu juga mau, kamu yang tentukan rencananya. Nanti kita cocokkan jadwal bareng-bareng. No pressure 🤍</p>
+  <div class="card">
+    <form id="meetForm">
+      <fieldset><legend>📅 A. Kapan ketemu?</legend>
+        <label for="date">Tanggal pilihan</label><input id="date" type="date" required>
+        <label for="time">Waktu</label><select id="time"><option>Pagi</option><option>Siang</option><option selected>Sore</option><option>Malam</option></select>
+        <label for="exactTime">Jam spesifik (opsional)</label><input id="exactTime" placeholder="Contoh: 16.00">
+        <label for="altDate">Tanggal alternatif (opsional)</label><input id="altDate" type="date">
+      </fieldset>
+      <fieldset><legend>📍 B. Mau ketemu di mana?</legend><div class="options">
+        <label><input type="radio" name="placeType" value="Kafe" checked>Kafe</label><label><input type="radio" name="placeType" value="Mall">Mall</label><label><input type="radio" name="placeType" value="Tempat makan">Tempat makan</label><label><input type="radio" name="placeType" value="Jalan-jalan santai">Jalan-jalan santai</label><label><input type="radio" name="placeType" value="Tempat lain">Tempat lain</label>
+      </div><label for="place">Nama tempat / lokasi</label><input id="place" placeholder="Contoh: kafe dekat alun-alun" required></fieldset>
+      <fieldset><legend>🍜 C. Mau makan apa?</legend><div class="options">
+        <label><input type="checkbox" name="food" value="Seblak">Seblak 🌶️</label><label><input type="checkbox" name="food" value="Bakso">Bakso 🍲</label><label><input type="checkbox" name="food" value="Mie ayam">Mie ayam 🍜</label><label><input type="checkbox" name="food" value="Ayam geprek">Ayam geprek 🍗</label><label><input type="checkbox" name="food" value="Dimsum">Dimsum 🥟</label><label><input type="checkbox" name="food" value="Makanan Jepang">Makanan Jepang 🍣</label><label><input type="checkbox" name="food" value="Burger / western">Burger / western 🍔</label><label><input type="checkbox" name="food" value="Es krim / dessert">Es krim / dessert 🍦</label><label><input type="checkbox" name="food" value="Cari bareng">Cari bareng 💫</label>
+      </div><label for="otherFood">Makanan lain (opsional)</label><input id="otherFood" placeholder="Tulis pilihanmu"></fieldset>
+      <fieldset><legend>🎡 D. Mau ngapain?</legend><div class="options">
+        <label><input type="checkbox" name="activity" value="Ngobrol sambil makan">Ngobrol sambil makan</label><label><input type="checkbox" name="activity" value="Cari jajanan">Cari jajanan</label><label><input type="checkbox" name="activity" value="Main arcade/game">Main arcade/game</label><label><input type="checkbox" name="activity" value="Nonton film">Nonton film</label><label><input type="checkbox" name="activity" value="Foto-foto jika nyaman">Foto-foto jika nyaman</label><label><input type="checkbox" name="activity" value="Jalan-jalan">Jalan-jalan</label>
+      </div></fieldset>
+      <fieldset><legend>📸 E. Foto bareng?</legend><select id="photo"><option>Gas foto bareng!</option><option>Beberapa foto saja</option><option>Lihat situasi nanti</option><option>Aku lebih nyaman tanpa foto</option></select></fieldset>
+      <fieldset><legend>💌 F. Pesan buat Gerdy (opsional)</legend><textarea id="message" rows="3" placeholder="Request tempat, makanan, atau pesan khusus..."></textarea></fieldset>
+      <button class="btn" type="submit">BUAT LEMBAR JAWABAN ✨</button>
+    </form>
+  </div>
+</section>
+
+<section class="screen" id="report">
+  <div class="mascot">🎉💗🪐</div><div class="eyebrow">Mission report generated</div><h1 class="title">MISSION COMPLETED!</h1>
+  <p class="sub">Cek lagi jawabanmu, Naura. Kalau sudah cocok, kirim ke Gerdy lewat WhatsApp.</p>
+  <div class="card"><div class="result" id="answerText"></div>
+    <div class="actions"><button class="btn secondary" onclick="showScreen('meet')">EDIT ANSWERS ✏️</button><button class="btn" onclick="sendWhatsApp()">KIRIM KE GERDY 💌</button><button class="btn secondary" onclick="downloadAnswer()">SIMPAN LEMBAR .TXT 📄</button><button class="btn secondary" onclick="window.print()">PRINT / SIMPAN PDF</button></div>
+  </div>
+  <p class="sub">“Semoga jokes-ku lebih lucu pas ketemu langsung. WKWK.” — GERDY 🤍</p>
+  <button class="btn secondary small" onclick="showScreen('intro')">Main lagi dari awal ↻</button>
+</section>
+<p class="footer">Made with a little stardust by GERDY for NAURA 💗</p>
+</main>
+<script>
+const levels = [
+ {title:"LEVEL 01 — BRAIN TEST 😂",desc:"Kenapa kalender nggak pernah berani ngajak kamu ketemuan?",q:"Pilih jawaban paling masuk akal:",opts:["Takut kehabisan tanggal","Takut jadwalnya ditolak","Kalendernya butuh motivasi dulu"],replies:["Kalendernya harus belajar percaya diri. 😭","Waduh, kalender aja takut ditolak. WKWK.","Jawaban diterima. Logika sedang dipertanyakan. 🤝"]},
+ {title:"LEVEL 02 — QUICK CHOICES ⚡",desc:"Kalau ada waktu luang, kamu lebih pilih...",q:"Pilih yang paling kamu banget:",opts:["Chat panjang","Ngobrol langsung","Tergantung mood dan orangnya"],replies:["Jempol siap lembur, berarti. 😂","Oke, komunikasi tatap muka masuk daftar prioritas. 😏","Jawaban paling realistis. Mood juga punya hak suara."]},
+ {title:"LEVEL 03 — COMPATIBILITY SCANNER 🔍",desc:"Sistem sedang menganalisis preferensi Agent Naura...",q:"Rencana jalan yang paling menarik:",opts:["Kafe nyaman sambil ngobrol","Cari jajanan dan jalan-jalan","Rencanain bareng aja"],replies:["Vibes ngobrol santai terdeteksi. ☕","Petualangan kuliner terdeteksi. 🍜","Keputusan demokratis. Sistem menyetujui. 💗"]},
+ {title:"LEVEL 04 — FLIRTING BATTLE 😳",desc:"Pilih kartu untuk membuka pesan rahasia dari Gerdy.",q:"Kartu mana yang mau dibuka?",opts:["Kartu 1 — Kalender","Kartu 2 — Wi-Fi","Kartu 3 — Misi ketemuan"],replies:["Aku punya masalah sama kalender: belum nemu tanggal yang cocok buat ngajak kamu ketemu. 😭","Aku pengin ngobrol langsung. Siapa tahu jokes-ku lebih lucu kalau nggak lewat sinyal Wi-Fi. WKWK.","Aku nggak janji bakal kayak film romantis, tapi semoga tempatnya nyaman dan obrolannya nggak kayak wawancara kerja. 🤝"]}
+];
+let level=0,answers={};
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function startGame(){showScreen('game');renderLevel()}
+function renderLevel(){
+ const l=levels[level];document.getElementById('levelTag').textContent=`LEVEL ${level+1}/4`;document.getElementById('progressBar').style.width=((level+1)/5*100)+'%';
+ document.getElementById('gameContent').innerHTML=`<h2>${l.title}</h2><p class="muted">${l.desc}</p><div class="question">${l.q}</div><div class="choices">${l.opts.map((o,i)=>`<button class="choice" onclick="choose(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div><div class="feedback" id="feedback">${answers[level]!==undefined?l.replies[answers[level]]:''}</div>`;
+ if(answers[level]!==undefined)document.querySelectorAll('.choice')[answers[level]].classList.add('selected');
+ document.getElementById('nextBtn').textContent=level===3?'Final Mission →':'Lanjut →';
+}
+function choose(i){answers[level]=i;document.querySelectorAll('.choice').forEach((b,j)=>b.classList.toggle('selected',i===j));document.getElementById('feedback').textContent=levels[level].replies[i]}
+function nextLevel(){if(answers[level]===undefined){document.getElementById('feedback').textContent='Pilih satu dulu, Agent Naura. Sistem menunggu keputusanmu. 😭';return}if(level<3){level++;renderLevel()}else showScreen('meet')}
+function prevLevel(){if(level>0){level--;renderLevel()}else showScreen('intro')}
+document.getElementById('meetForm').addEventListener('submit',function(e){e.preventDefault();makeReport();showScreen('report')});
+function val(id){return document.getElementById(id).value.trim()}
+function checked(name){return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value)}
+function makeReport(){
+ const placeType=document.querySelector('input[name="placeType"]:checked')?.value||'Belum dipilih';
+ const foods=checked('food');if(val('otherFood'))foods.push(val('otherFood'));
+ const activities=checked('activity');
+ const lines=[
+ 'AGENT NAURA — MISSION REPORT 💗','Nama: NAURA','Dari: GERDY','',
+ '📅 Tanggal: '+(val('date')||'Belum dipilih'),
+ '🕒 Waktu: '+val('time')+(val('exactTime')?' ('+val('exactTime')+')':''),
+ '📅 Tanggal alternatif: '+(val('altDate')||'Tidak ada'),
+ '📍 Jenis tempat: '+placeType,
+ '📌 Nama tempat/lokasi: '+(val('place')||'Belum diisi'),
+ '🍜 Makanan: '+(foods.join(', ')||'Belum dipilih'),
+ '🎡 Aktivitas: '+(activities.join(', ')||'Belum dipilih'),
+ '📸 Foto bareng: '+val('photo'),
+ '💌 Pesan buat Gerdy: '+(val('message')||'Tidak ada pesan tambahan'),
+ '','Status: menunggu konfirmasi jadwal dari kedua pihak. 💗'
+ ];
+ document.getElementById('answerText').textContent=lines.join('\n');
+}
+function sendWhatsApp(){makeReport();const body=document.getElementById('answerText').textContent;const url='https://wa.me/6283185954674?text='+encodeURIComponent('Hai Gerdy! 💗 Ini hasil Final Mission dari Naura!\n\n'+body);window.open(url,'_blank','noopener')}
+function downloadAnswer(){makeReport();const blob=new Blob([document.getElementById('answerText').textContent],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Lembar-Jawaban-Naura.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href)}
+// Set minimum date to today, based on the visitor's local device.
+const today=new Date();const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);document.getElementById('date').min=localToday;document.getElementById('altDate').min=localToday;
+</script>
+</body>
+</html>
